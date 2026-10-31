@@ -1,0 +1,31 @@
+# Command prefix for all of this bot's commands, without the leading "!" (case-insensitive).
+command_prefix: getkeys
+
+# Users who can block/unblock rooms. Admins may also always export keys
+# (as long as they are joined to the room and the room isn't blocked).
+admins:
+  - "@admin:example.com"
+
+# Who may request a key export. A user is allowed if ANY enabled rule matches.
+# If both rules are disabled, only admins may export.
+permissions:
+  # Users who may always request keys for rooms they are joined to.
+  allowed_users: []
+  # Minimum power level in the room required to request keys
+  # (e.g. 0 = any member, 50 = moderator, 100 = admin). null disables this rule.
+  min_power_level: null
+
+# Rooms where key export is always refused. Admins can also block rooms
+# at runtime with "!getkeys block"; those are stored in the plugin database.
+blocked_rooms: []
+
+# Minimum seconds between exports for the same user and room.
+cooldown_seconds: 300
+
+# How long (in seconds) to wait for the user to join a newly created DM
+# before giving up on the delivery.
+dm_join_timeout: 900
+
+# PBKDF2 iterations used to derive the export file key from the password.
+# Element uses 500000. Higher is slower to brute force, but also slower to export.
+pbkdf2_rounds: 500000
