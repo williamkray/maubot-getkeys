@@ -4,6 +4,12 @@ A [maubot](https://github.com/maubot/maubot) plugin that lets users request the 
 end-to-end encryption keys for a room, so they can read that room's encrypted history
 without having to obtain keys from other members.
 
+> [!WARNING]
+Sharing encryption keys is inherently insescure. Use this plugin at your own risk. Even if you trust all people in an
+encrypted room, their account may be on a compromised homeserver, whose admin could potentially use their
+account to invite unintended room members who would then be able to read encrypted room history with this plugin.
+By using this plugin you are knowingly poking holes in security frameworks.
+
 When a permitted user sends `!getkeys` in an encrypted room, the bot:
 
 1. Collects every Megolm session key it holds for that room.
